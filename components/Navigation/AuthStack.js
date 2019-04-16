@@ -9,7 +9,7 @@ const AuthStack = createStackNavigator(
     Signup: Signup
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Signup",
     cardStyle: {
       backgroundColor: "rgb(248, 249, 250)"
     },

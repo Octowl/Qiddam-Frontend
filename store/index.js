@@ -5,8 +5,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 // Reducer
 import rootReducer from "./reducers";
 
-// React DevTools
-
 // Creating the store
 const middlewares = [thunk];
 const enhancer = composeWithDevTools({})(applyMiddleware(...middlewares));

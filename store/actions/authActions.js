@@ -37,7 +37,8 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = (userData, navigation) => {
+export const login = userData => {
+  console.log(userData);
   return async dispatch => {
     try {
       let response = await axios.post(
@@ -48,8 +49,6 @@ export const login = (userData, navigation) => {
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
       await dispatch(setCurrentUser(decodeUser));
-      dispatch(fetchProfile());
-      //   navigation.navigate("Profile");
     } catch (error) {
       console.error(error);
     }
