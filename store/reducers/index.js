@@ -3,10 +3,12 @@ import { combineReducers } from "redux";
 
 // Reducers
 import authReducer from "./authReducer";
-import activitiesReducer from "./activitiesReducer";
+import activityReducer from "./activityReducer";
+
 
 // Combining the reducers
 export default combineReducers({
   authReducer: authReducer,
-  activities: activitiesReducer
+  activityReducer: activityReducer
+
 });

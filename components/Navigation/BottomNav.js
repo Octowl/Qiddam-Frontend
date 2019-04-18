@@ -2,10 +2,12 @@ import { createBottomTabNavigator } from "react-navigation";
 import React from "react";
 import { Icon } from "native-base";
 import AuthStack from "./AuthStack";
+import ActivitiesStack from "./ActivitiesStack";
 
 const BottomNav = createBottomTabNavigator(
   {
-    Auth: AuthStack
+    Auth: AuthStack,
+    ActivitiesStack: ActivitiesStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -19,7 +21,10 @@ const BottomNav = createBottomTabNavigator(
             iconName = "account";
             iconType = "MaterialCommunityIcons";
             break;
-          //CompleteMe
+          case "ActivitiesStack":
+            iconName = "account";
+            iconType = "MaterialCommunityIcons";
+            break;
           default:
             iconName = "account";
             iconType = "MaterialCommunityIcons";
