@@ -5,8 +5,10 @@ import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import activityReducer from "./activityReducer";
 
+
 // Combining the reducers
 export default combineReducers({
   authReducer: authReducer,
   activityReducer: activityReducer
+
 });
