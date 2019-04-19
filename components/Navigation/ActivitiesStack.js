@@ -1,10 +1,14 @@
 import { createStackNavigator } from "react-navigation";
 
 import Categories from "../Activities/Categories";
+import ActivitiesList from "../Activities/ActivitiesList";
+import ActivityDetail from "../Activities/ActivityDetail";
 
 const ActivitiesStack = createStackNavigator(
   {
-    Categories: Categories
+    Categories: Categories,
+    ActivitiesList: ActivitiesList,
+    ActivityDetail: ActivityDetail
   },
   {
     initialRouteName: "Categories",

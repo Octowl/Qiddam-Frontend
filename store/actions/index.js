@@ -4,8 +4,7 @@ export { login, logout, signup, checkForExpiredToken } from "./authActions";
 // Activities
 
 export {
-  fetchCatogries,
-  fetchActivities,
-  activityDetails
+  fetchCategories,
+  activityDetails,
+  fetchActivitiesCat
 } from "./activityActions";
-
