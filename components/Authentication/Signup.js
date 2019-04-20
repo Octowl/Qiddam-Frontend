@@ -34,6 +34,7 @@ class Signup extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="اسمك معنا"
+            autoCapitalize="none"
             onChangeText={username => this.setState({ username })}
           />
           <Image
@@ -47,6 +48,7 @@ class Signup extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="اسمك الأول"
+            autoCapitalize="none"
             onChangeText={first_name => this.setState({ first_name })}
           />
           <Image
@@ -61,6 +63,7 @@ class Signup extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="اسمك الأخير"
+            autoCapitalize="none"
             onChangeText={last_name => this.setState({ last_name })}
           />
           <Image
@@ -76,6 +79,7 @@ class Signup extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="ايميلك"
+            autoCapitalize="none"
             keyboardType="email-address"
             onChangeText={email => this.setState({ email })}
           />
@@ -91,6 +95,7 @@ class Signup extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="كلمة المرور"
+            autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={password => this.setState({ password })}
           />

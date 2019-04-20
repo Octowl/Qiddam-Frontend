@@ -31,6 +31,7 @@ class Login extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="اسمك"
+            autoCapitalize="none"
             onChangeText={username => this.setState({ username })}
           />
           <Image
@@ -45,6 +46,7 @@ class Login extends Component {
           <TextInput
             style={styles.inputs}
             placeholder="كلمة المرور"
+            autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={password => this.setState({ password })}
           />

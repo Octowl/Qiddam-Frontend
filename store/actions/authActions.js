@@ -49,6 +49,7 @@ export const login = userData => {
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
       await dispatch(setCurrentUser(decodeUser));
+      dispatch(fetchMyProfile());
     } catch (error) {
       console.error(error);
     }

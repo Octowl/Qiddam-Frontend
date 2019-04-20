@@ -1,5 +1,12 @@
 // Authentication
-export { login, logout, signup, checkForExpiredToken } from "./authActions";
+export {
+  login,
+  logout,
+  signup,
+  checkForExpiredToken,
+  fetchProfile,
+  fetchMyProfile
+} from "./authActions";
 
 // Activities
 
@@ -8,4 +15,3 @@ export {
   fetchActivities,
   activityDetails
 } from "./activityActions";
-
