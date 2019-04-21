@@ -11,18 +11,14 @@ class ActivitiesList extends Component {
     isFetching: false
   };
 
-  componentDidMount() {
-    console.log(this.props.categoryActivities);
-  }
-
   async onRefresh() {
     this.setState({ isFetching: true });
     await this.props.fetchActivitiesCat(this.props.categoryID),
       this.setState({ isFetching: false });
   }
 
-  handlePress = categoryID => {
-    this.props.activityDetails(categoryID),
+  handlePress = activityID => {
+    this.props.activityDetails(activityID),
       this.props.navigation.navigate("ActivityDetail");
   };
   keyExtractor = (item, index) => index.toString();
@@ -63,8 +59,7 @@ class ActivitiesList extends Component {
 
 const mapStateToProps = state => {
   return {
-    categoryActivities: state.activityReducer.categoryActivities.activities,
-    categoryID: state.activityReducer.categoryActivities.id
+    categoryActivities: state.activityReducer.categoryActivities.activities
   };
 };
 const mapDispatchToProps = dispatch => ({
