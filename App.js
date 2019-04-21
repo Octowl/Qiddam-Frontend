@@ -2,6 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import AppContainer from "./components/Navigation";
+import ActivityCreateForm from "./components/Activities/ActivityCreateForm";
 import SplashScreen from "./components/LandingPage/SplashScreen";
 
 class App extends React.Component {
@@ -28,7 +29,8 @@ class App extends React.Component {
     // }
     return (
       <Provider store={store}>
-        <AppContainer />
+        <ActivityCreateForm />
+        {/* <AppContainer /> */}
       </Provider>
     );
   }

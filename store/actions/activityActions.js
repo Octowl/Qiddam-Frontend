@@ -9,8 +9,11 @@ const instance = axios.create({
 export const fetchCategories = () => {
   return async dispatch => {
     try {
+      console.log("before the fetch");
       const res = await instance.get("/api/categories/");
       const categories = res.data;
+      console.log("after the fetch");
+      console.log("this is the categories", categories);
       dispatch({
         type: actionTypes.FETCH_CATEGORIES,
         payload: categories
@@ -90,10 +93,10 @@ export const deleteActivity = activityID => {
   return async dispatch => {
     try {
       const res = await instance.get(`/api/activity/delete/${activityID}`);
-      const activityID = res.data;
+      const activityId = res.data;
       dispatch({
         type: actionTypes.DELETE_ACTIVITY,
-        payload: activityID
+        payload: activityId
       });
     } catch (error) {
       console.error("Something wnet wrong", error);
