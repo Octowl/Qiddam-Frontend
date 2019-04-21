@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import qiddamLogo from "../../img/qiddamLogo.png";
 import * as actionCreators from "../../store/actions";
 class ActivityDetail extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     // this.props.currentActivity(this.props.activity.id);
-    console.log(this.props.activity.id);
+    await console.log(this.props.activity.id);
   }
 
   render() {
@@ -34,7 +34,7 @@ class ActivityDetail extends Component {
 
             <Text style={styles.date}>التاريخ {this.props.activity.date} </Text>
             <Text style={styles.date}>الوقت {this.props.activity.time} </Text>
-
+            <Text style={styles.date}>الوقت {this.props.activity.id} </Text>
             <View style={styles.profile}>
               <Image
                 style={styles.avatar}
@@ -55,10 +55,10 @@ class ActivityDetail extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  currentActivity: activityID =>
-    dispatch(actionCreators.activityDetails(activityID))
-});
+// const mapDispatchToProps = dispatch => ({
+//   currentActivity: activityID =>
+//     dispatch(actionCreators.activityDetails(activityID))
+// });
 
 const mapStateToProps = state => {
   return {
@@ -66,7 +66,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ActivityDetail);
+export default connect(mapStateToProps)(ActivityDetail);
