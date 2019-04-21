@@ -52,3 +52,51 @@ export const activityDetails = activityID => {
     }
   };
 };
+
+export const createActivity = () => {
+  return async dispatch => {
+    try {
+      const res = await instance.get("/api/activity");
+      const activity = res.data;
+
+      dispatch({
+        type: actionTypes.CREATE_ACTIVITY,
+        payload: activity
+      });
+    } catch (error) {
+      console.error("Something wnet wrong", error);
+    }
+  };
+};
+
+export const updateActivity = (activity, activityUpdate) => {
+  return async dispatch => {
+    try {
+      const res = await instance.put(
+        `/api/activity/update/${activity}`,
+        activityUpdate
+      );
+      const response = res.data;
+      dispatch({
+        type: actionTypes.UPDATE_ACTIVITY,
+        payload: response
+      });
+    } catch (error) {
+      console.error("Something wnet wrong", error);
+    }
+  };
+};
+export const deleteActivity = activityID => {
+  return async dispatch => {
+    try {
+      const res = await instance.get(`/api/activity/delete/${activityID}`);
+      const activityID = res.data;
+      dispatch({
+        type: actionTypes.DELETE_ACTIVITY,
+        payload: activityID
+      });
+    } catch (error) {
+      console.error("Something wnet wrong", error);
+    }
+  };
+};

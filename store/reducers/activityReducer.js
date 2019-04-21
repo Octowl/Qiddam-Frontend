@@ -30,6 +30,21 @@ const activities = (state = initialState, action) => {
         ...state,
         categoryActivities: categoryActivities
       };
+    case actionTypes.CREATE_ACTIVITY:
+      return {
+        ...state,
+        categories: action.payload
+      };
+    case actionTypes.UPDATE_ACTIVITY:
+      return {
+        ...state,
+        categories: action.payload
+      };
+    case actionTypes.DELETE_ACTIVITY:
+      return {
+        ...state,
+        categories: action.payload
+      };
     default:
       return state;
   }
