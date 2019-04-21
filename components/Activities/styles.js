@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     padding: 16,
     flexDirection: "row",
     borderBottomWidth: 1,
-    borderColor: "#FFFFFF",
+    borderColor: "green",
     alignItems: "flex-start"
   },
   avatar: {
@@ -61,12 +61,20 @@ const styles = StyleSheet.create({
   header: {
     padding: 30,
     alignItems: "center",
-    backgroundColor: "#7588AC"
+    backgroundColor: "#7588AC",
+
+    width: 300,
+    alignSelf: "center",
+    marginTop: 40,
+    borderRadius: 35,
+    borderWidth: 3
   },
+
   headerTitle: {
     fontSize: 30,
     color: "#FFFFFF",
-    marginTop: 10
+    marginTop: 10,
+    textAlign: "center"
   },
   name: {
     fontSize: 22,
@@ -75,7 +83,12 @@ const styles = StyleSheet.create({
   },
   postContent: {
     flex: 1,
-    padding: 30
+    padding: 30,
+    backgroundColor: "#bad6dd",
+    alignSelf: "center",
+    width: 300,
+    borderRadius: 35,
+    marginTop: 20
   },
   postTitle: {
     fontSize: 26,
@@ -95,18 +108,24 @@ const styles = StyleSheet.create({
   date: {
     color: "#696969",
     marginTop: 10,
-    textAlign: "right"
+    textAlign: "right",
+    alignSelf: "center"
   },
   avatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 35,
-    borderWidth: 4,
-    borderColor: "#474a4f"
+    width: 65,
+    height: 65,
+    borderRadius: 25,
+    borderWidth: 3,
+    borderColor: "#474a4f",
+    marginLeft: 3,
+    marginTop: 3,
+    marginBottom: 3
   },
   profile: {
     flexDirection: "row",
-    marginTop: 20
+    marginTop: 20,
+    borderWidth: 1,
+    borderRadius: 25
   },
 
   containerD: {
@@ -124,12 +143,11 @@ const styles = StyleSheet.create({
     marginTop: 50,
     height: 50,
     width: 100,
-    borderColor: "#474a4f",
-    borderWidth: 3,
+
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 30,
-    backgroundColor: "#FDFAF3",
+    backgroundColor: "#f9b384",
     alignSelf: "center"
   },
   shareButtonText: {
@@ -137,8 +155,8 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   qiddam: {
-    width: 60,
-    height: 40
+    width: 100,
+    height: 80
   },
   pageView: {
     flex: 1,
@@ -147,6 +165,28 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: "#FDFAF3"
+  },
+  categoryList: {
+    flexGrow: 1,
+
+    marginTop: 10,
+    marginBottom: 10,
+    height: 164,
+    marginRight: 20,
+    marginLeft: 20,
+    borderRadius: 25,
+    borderWidth: 4,
+    borderColor: "#FDB62B"
+  },
+  background: {
+    backgroundColor: "black",
+    width: null,
+    flex: 1
+  },
+  titleCategory: {
+    fontSize: 26,
+    fontWeight: "600",
+    textAlign: "center"
   }
 });
 

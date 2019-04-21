@@ -1,10 +1,22 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Image, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  FlatList,
+  Header
+} from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import { ListItem } from "react-native-elements";
+import TouchableScale from "react-native-touchable-scale";
 
 class Categories extends Component {
+  state = {
+    isFetching: false
+  };
   componentDidMount() {
     this.props.fetchCategories();
   }
@@ -12,6 +24,13 @@ class Categories extends Component {
     this.props.fetchActivitiesCat(categoryID),
       this.props.navigation.navigate("ActivitiesList");
   };
+
+  async onRefresh() {
+    console.log("refreshing");
+    this.setState({ isFetching: true });
+    await this.props.fetchCategories();
+    this.setState({ isFetching: false });
+  }
 
   renderGroupMembers = Category => {
     if (Category.activities) {
@@ -37,48 +56,40 @@ class Categories extends Component {
     }
     return null;
   };
+
+  keyExtractor = (item, index) => index.toString();
+
+  renderItem = ({ item }) => (
+    <ListItem
+      title={item.title}
+      subtitle={this.renderGroupMembers(item)}
+      Component={TouchableScale}
+      friction={90}
+      tension={100}
+      activeScale={0.7}
+      containerStyle={styles.categoryList}
+      onPress={() => this.handlePress(item.id)}
+      titleStyle={styles.titleCategory}
+      rightIcon={
+        <Image
+          style={styles.qiddam}
+          source={require("../../img/qiddamIcon.png")}
+        />
+      }
+    />
+  );
+
   render() {
     return (
-      <FlatList
-        style={styles.root}
-        data={this.props.activities}
-        extraData={this.props}
-        ItemSeparatorComponent={() => {
-          return <View style={styles.separator} />;
-        }}
-        keyExtractor={item => {
-          return item.id.toString();
-        }}
-        renderItem={item => {
-          const Category = item.item;
-          let mainContentStyle;
-
-          return (
-            <View style={styles.container}>
-              <Image source={{ uri: Category.image }} style={styles.avatar} />
-              <View style={styles.content}>
-                <View style={mainContentStyle}>
-                  <View style={styles.text}>
-                    <Text style={styles.groupName}>{Category.title}</Text>
-                  </View>
-                  {/* <Text style={styles.countMembers}>
-                    {Category.countMembers} members
-                  </Text> */}
-                  <Text style={styles.timeAgo}>Updated 2 months ago</Text>
-
-                  {this.renderGroupMembers(Category)}
-
-                  <TouchableOpacity
-                    onPress={() => this.handlePress(Category.id)}
-                  >
-                    <Text>هنا</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          );
-        }}
-      />
+      <ImageBackground style={styles.background}>
+        <FlatList
+          onRefresh={() => this.onRefresh()}
+          refreshing={this.state.isFetching}
+          keyExtractor={this.keyExtractor}
+          data={this.props.activities}
+          renderItem={this.renderItem}
+        />
+      </ImageBackground>
     );
   }
 }

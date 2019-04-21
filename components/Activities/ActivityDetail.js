@@ -3,8 +3,13 @@ import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import qiddamLogo from "../../img/qiddamLogo.png";
-
+import * as actionCreators from "../../store/actions";
 class ActivityDetail extends Component {
+  componentDidMount() {
+    // this.props.currentActivity(this.props.activity.id);
+    console.log(this.props.activity.id);
+  }
+
   render() {
     return (
       <ScrollView style={styles.pageView}>
@@ -40,18 +45,20 @@ class ActivityDetail extends Component {
 
               <Text style={styles.name}>اسم المنظم</Text>
             </View>
-            <TouchableOpacity style={styles.shareButton}>
-              <Image
-                style={styles.qiddam}
-                source={require("../../img/qiddamLogo.png")}
-              />
-            </TouchableOpacity>
           </View>
+          <TouchableOpacity style={styles.shareButton}>
+            <Text>قدّام</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  currentActivity: activityID =>
+    dispatch(actionCreators.activityDetails(activityID))
+});
 
 const mapStateToProps = state => {
   return {
@@ -61,5 +68,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ActivityDetail);

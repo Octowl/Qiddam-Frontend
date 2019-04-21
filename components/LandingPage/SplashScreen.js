@@ -1,18 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, Image } from "react-native";
-import styles from "./styles";
+import { ImageBackground, View } from "react-native";
 
 class SplashScreen extends Component {
   render() {
-    const viewStyles = [styles.container];
-
     return (
-      <View style={viewStyles}>
-        <Image
-          style={styles.bgImage}
-          source={require("../../img/splash.png")}
-        />
-      </View>
+      <ImageBackground
+        source={require("../../img/splash.png")}
+        style={{ width: null, flex: 1 }}
+      />
     );
   }
 }

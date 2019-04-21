@@ -18,7 +18,7 @@ const ActivitiesStack = createStackNavigator(
     defaultNavigationOptions: {
       headerTintColor: "white",
       headerStyle: {
-        backgroundColor: "rgb(155, 166, 87)"
+        backgroundColor: "black"
       },
       headerTextStyle: {
         fontWeight: "bold"
