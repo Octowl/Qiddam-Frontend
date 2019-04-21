@@ -22,8 +22,8 @@ const BottomNav = createBottomTabNavigator(
             iconType = "MaterialCommunityIcons";
             break;
           case "ActivitiesStack":
-            iconName = "account";
-            iconType = "MaterialCommunityIcons";
+            iconName = "play-arrow";
+            iconType = "MaterialIcons";
             break;
           default:
             iconName = "account";
@@ -36,7 +36,7 @@ const BottomNav = createBottomTabNavigator(
     }),
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: "rgb(155, 166, 87)",
+      activeTintColor: "#F5A9B5",
       inactiveTintColor: "black",
       style: {
         backgroundColor: "rgb(248, 249, 250)"
