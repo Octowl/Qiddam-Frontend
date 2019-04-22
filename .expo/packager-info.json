@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 61218,
-  "expoServerNgrokUrl": "https://u3-iek.anonymous.qiddam-frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.u3-iek.anonymous.qiddam-frontend.exp.direct",
-  "ngrokPid": 61238
+  "devToolsPort": 19004,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 
 const resizeMode = "center";
 
+import { Dimensions } from "react-native";
+
+const WIDTH = Dimensions.get("screen").width;
+
 const styles = StyleSheet.create({
   root: {
     backgroundColor: "#FFFFFF"
@@ -11,7 +15,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomWidth: 1,
     borderColor: "green",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    overflow: "hidden"
   },
   avatar: {
     width: 55,
@@ -36,8 +41,7 @@ const styles = StyleSheet.create({
     width: 30,
 
     marginRight: 4,
-    borderRadius: 10,
-    borderWidth: 1
+    borderRadius: 15
   },
   separator: {
     height: 1,
@@ -54,33 +58,43 @@ const styles = StyleSheet.create({
     fontSize: 23,
     color: "#1E90FF"
   },
+  //////here
   groupMembersContent: {
     flexDirection: "row",
-    marginTop: 10
+    marginTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: "white",
+    padding: 3,
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    borderRadius: 50,
+    padding: 10
   },
   header: {
     padding: 30,
     alignItems: "center",
-    backgroundColor: "#7588AC",
+    backgroundColor: "#efefef",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
 
     width: 300,
     alignSelf: "center",
-    marginTop: 40,
-    borderRadius: 35,
-    borderWidth: 3
+
+    borderRadius: 15
   },
 
   headerTitle: {
-    fontSize: 30,
+    fontSize: 20,
     color: "#FFFFFF",
     marginTop: 10,
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "rgba(255, 255, 255, 0.5)"
   },
-  name: {
-    fontSize: 22,
-    color: "#FFFFFF",
-    fontWeight: "600"
-  },
+
   postContent: {
     flex: 1,
     padding: 30,
@@ -130,7 +144,7 @@ const styles = StyleSheet.create({
 
   containerD: {
     flex: 1,
-    backgroundColor: "#FDFAF3"
+    backgroundColor: "white"
   },
   name: {
     fontSize: 22,
@@ -155,8 +169,8 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   qiddam: {
-    width: 100,
-    height: 80
+    width: 30,
+    height: 30
   },
   pageView: {
     flex: 1,
@@ -174,19 +188,63 @@ const styles = StyleSheet.create({
     height: 164,
     marginRight: 20,
     marginLeft: 20,
-    borderRadius: 25,
-    borderWidth: 4,
-    borderColor: "#FDB62B"
+    borderRadius: 15,
+    backgroundColor: "#efefef"
+  },
+  activityList: {
+    flexGrow: 1,
+
+    marginTop: 10,
+    marginBottom: 10,
+    height: 100,
+    marginRight: 20,
+    marginLeft: 20,
+    borderRadius: 15,
+    backgroundColor: "#efefef",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22
   },
   background: {
-    backgroundColor: "black",
+    backgroundColor: "white",
     width: null,
     flex: 1
   },
-  titleCategory: {
-    fontSize: 26,
-    fontWeight: "600",
-    textAlign: "center"
+  titleList: {
+    color: "#D9663D",
+    fontSize: 20,
+    fontWeight: "100"
+  },
+  titleTextCategory: {
+    color: "#D9663D",
+    fontSize: 20,
+
+    fontWeight: "100",
+    borderRadius: 30,
+    borderWidth: 6,
+    padding: 12,
+    borderColor: "white"
+  },
+  catHeader: {
+    flexDirection: "row",
+    flex: 1,
+    width: WIDTH,
+    padding: 20,
+    backgroundColor: "#bbc1c1"
+  },
+  /////here
+  titleStyle: {
+    fontWeight: "100",
+    fontSize: 10,
+    alignSelf: "center",
+    color: "#8768A6"
+  },
+  subtitleStyleOrg: {
+    color: "#a1a3a2"
   }
 });
 
