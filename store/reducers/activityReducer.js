@@ -2,7 +2,6 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   categories: [],
-
   activity: [],
   categoryActivities: []
 };

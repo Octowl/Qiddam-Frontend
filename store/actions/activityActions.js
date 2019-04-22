@@ -59,7 +59,7 @@ export const activityDetails = activityID => {
 export const createActivity = () => {
   return async dispatch => {
     try {
-      const res = await instance.get("/api/activity");
+      const res = await instance.get("/api/activity/create");
       const activity = res.data;
 
       dispatch({

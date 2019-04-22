@@ -42,6 +42,10 @@ class ActivityCreateForm extends Component {
     this.setState({ selected: value });
   };
 
+  onValueChangeGender = value => {
+    this.setState({ selectedGender: value });
+  };
+
   state = {
     title: "",
     description: "",
@@ -134,18 +138,12 @@ class ActivityCreateForm extends Component {
                         placeholder="أولاد ولا بنات؟"
                         placeholderStyle={{ color: "#bfc6ea" }}
                         placeholderIconColor="#007aff"
-                        selectedValue={this.state.selected}
-                        onValueChange={this.onValueChange}
+                        selectedValue={this.state.selectedGender}
+                        onValueChange={this.onValueChangeGender}
                       >
-                        {this.props.categories.map(category => (
-                          <Picker.Item
-                            label={category.title}
-                            value={category.title}
-                            key={category.id}
-                          >
-                            {category.title}
-                          </Picker.Item>
-                        ))}
+                        <Picker.Item label="بنات" value="key0" />
+                        <Picker.Item label="أولاد" value="key1" />
+                        <Picker.Item label="الكل" value="key2" />
                       </Picker>
                     </Item>
 
@@ -217,7 +215,6 @@ class ActivityCreateForm extends Component {
                 </Body>
               </ListItem>
               <Button
-                full
                 onPress={() =>
                   this.props.createActivity(this.state, this.props.navigation)
                 }
