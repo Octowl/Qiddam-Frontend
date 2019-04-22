@@ -4,16 +4,18 @@ import Login from "../Authentication/Login";
 import Signup from "../Authentication/Signup";
 import MyProfile from "../MyProfile";
 import Profile from "../Profile";
+import Profileup from "../UpdateProfile";
 
 const AuthStack = createStackNavigator(
   {
     Login: Login,
     Signup: Signup,
     MyProfile: MyProfile,
-    Profile: Profile
+    Profile: Profile,
+    Profile1: Profileup
   },
   {
-    initialRouteName: "Profile",
+    initialRouteName: "Profile1",
     cardStyle: {
       backgroundColor: "rgb(248, 249, 250)"
     },
