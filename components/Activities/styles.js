@@ -137,7 +137,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderWidth: 3,
     borderRadius: 25,
-    borderColor: "white"
+    borderColor: "white",
+    backgroundColor: "rgb(222, 226, 226)"
   },
 
   containerD: {
@@ -216,13 +217,13 @@ const styles = StyleSheet.create({
   titleList: {
     color: "#D9663D",
     fontSize: 20,
-    fontWeight: "100"
+    fontWeight: "200"
   },
   titleTextCategory: {
     color: "#D9663D",
     fontSize: 20,
 
-    fontWeight: "100",
+    fontWeight: "200",
     borderRadius: 30,
     borderWidth: 6,
     padding: 12,

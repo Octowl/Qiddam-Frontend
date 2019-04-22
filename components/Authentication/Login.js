@@ -3,7 +3,6 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   TouchableOpacity,
   Image,
   Alert
@@ -13,6 +12,15 @@ import * as actionCreators from "../../store/actions";
 import { connect } from "react-redux";
 
 class Login extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: "rgb(184, 224, 224)"
+    },
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
   state = {
     username: "",
     password: ""
@@ -23,52 +31,38 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.bgImage}
-          source={require("../../img/background1.png")}
-        />
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.inputs}
-            placeholder="اسمك"
-            onChangeText={username => this.setState({ username })}
-          />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri: "https://img.icons8.com/plasticine/100/000000/user-male.png"
-            }}
-          />
+        <View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.inputs}
+              placeholder="اسمك"
+              onChangeText={username => this.setState({ username })}
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.inputs}
+              placeholder="كلمة المرور"
+              secureTextEntry={true}
+              onChangeText={password => this.setState({ password })}
+            />
+          </View>
+
+          <TouchableOpacity
+            style={[styles.buttonContainer, styles.loginButton]}
+            onPress={() => this.props.login(this.state)}
+          >
+            <Text style={styles.loginText}>تسجيل دخول</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => this.props.navigation.navigate("Signup")}
+          >
+            <Text style={styles.btnText}>ما عندك حساب؟</Text>
+          </TouchableOpacity>
         </View>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.inputs}
-            placeholder="كلمة المرور"
-            secureTextEntry={true}
-            onChangeText={password => this.setState({ password })}
-          />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri: "https://img.icons8.com/plasticine/100/000000/password.png"
-            }}
-          />
-        </View>
-
-        <TouchableOpacity
-          style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.props.login(this.state)}
-        >
-          <Text style={styles.loginText}>تسجيل دخول</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => this.props.navigation.navigate("Signup")}
-        >
-          <Text style={styles.btnText}>ما عندك حساب؟</Text>
-        </TouchableOpacity>
       </View>
     );
   }
