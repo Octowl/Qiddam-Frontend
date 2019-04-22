@@ -1,19 +1,39 @@
 import React, { Component } from "react";
 import {
-  Text,
   View,
   ImageBackground,
   Image,
   FlatList,
-  Header
+  Header,
+  Text,
+  LinearGradient
 } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
-import { ListItem } from "react-native-elements";
+import { ListItem, Icon } from "react-native-elements";
 import TouchableScale from "react-native-touchable-scale";
 
 class Categories extends Component {
+  static navigationOptions = {
+    headerBackground: (
+      <Image
+        style={styles.catHeader}
+        source={require("../../img/header.png")}
+      />
+    ),
+
+    title: "عنوان؟",
+    headerStyle: {
+      height: 200,
+      borderBottomColor: "transparent",
+      borderBottomWidth: 0
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
   state = {
     isFetching: false
   };
@@ -61,21 +81,19 @@ class Categories extends Component {
 
   renderItem = ({ item }) => (
     <ListItem
-      title={item.title}
+      rightTitle={item.title}
       subtitle={this.renderGroupMembers(item)}
+      title="الأعضاء النشطين حاليا"
+      titleStyle={styles.titleStyle}
+      subtitleContainerStyle={styles.subtitleContainer}
       Component={TouchableScale}
       friction={90}
       tension={100}
-      activeScale={0.7}
+      activeScale={0.9}
       containerStyle={styles.categoryList}
       onPress={() => this.handlePress(item.id)}
-      titleStyle={styles.titleCategory}
-      rightIcon={
-        <Image
-          style={styles.qiddam}
-          source={require("../../img/qiddamIcon.png")}
-        />
-      }
+      rightTitleStyle={styles.titleTextCategory}
+      rightTitleContainerStyle={styles.titleCategory}
     />
   );
 

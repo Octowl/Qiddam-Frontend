@@ -7,6 +7,16 @@ import { ListItem } from "react-native-elements";
 import TouchableScale from "react-native-touchable-scale";
 
 class ActivitiesList extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: "white"
+    },
+    headerTintColor: "#04BFBF",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+
   state = {
     isFetching: false
   };
@@ -30,13 +40,18 @@ class ActivitiesList extends Component {
       friction={90}
       tension={100}
       activeScale={0.95}
-      containerStyle={styles.categoryList}
+      containerStyle={styles.activityList}
+      subtitle={item.orgnizer.user.username}
+      subtitleStyle={styles.subtitleStyleOrg}
+      leftAvatar={{ source: { uri: item.orgnizer.img } }}
       onPress={() => this.handlePress(item.id)}
-      titleStyle={styles.titleCategory}
+      titleStyle={styles.titleList}
       rightIcon={
         <Image
           style={styles.qiddam}
-          source={require("../../img/qiddamIcon.png")}
+          source={{
+            uri: "https://img.icons8.com/dusk/64/000000/forward-arrow.png"
+          }}
         />
       }
     />
@@ -73,5 +88,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ActivitiesList);
-
-///////////
