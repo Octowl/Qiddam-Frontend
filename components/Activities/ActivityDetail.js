@@ -68,7 +68,7 @@ class ActivityDetail extends Component {
               </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.shareButton}>
-              <Text>قدّام</Text>
+              <Text style={styles.shareButtonText}>قدّام</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

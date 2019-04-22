@@ -72,6 +72,8 @@ const styles = StyleSheet.create({
   header: {
     padding: 30,
     alignItems: "center",
+    alignSelf: "center",
+    width: 250,
     backgroundColor: "#efefef",
     shadowColor: "#000",
     shadowOffset: {
@@ -79,29 +81,24 @@ const styles = StyleSheet.create({
       height: 1
     },
     shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-
-    width: 300,
-    alignSelf: "center",
-
-    borderRadius: 15
+    shadowRadius: 2.22
   },
 
   headerTitle: {
     fontSize: 20,
-    color: "#FFFFFF",
+    color: "#8768A6",
     marginTop: 10,
-    textAlign: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.5)"
+
+    textAlign: "center"
   },
 
   postContent: {
     flex: 1,
     padding: 30,
-    backgroundColor: "#bad6dd",
+    backgroundColor: "#efefef",
     alignSelf: "center",
     width: 300,
-    borderRadius: 35,
+    borderRadius: 16,
     marginTop: 20
   },
   postTitle: {
@@ -130,7 +127,7 @@ const styles = StyleSheet.create({
     height: 65,
     borderRadius: 25,
     borderWidth: 3,
-    borderColor: "#474a4f",
+    borderColor: "white",
     marginLeft: 3,
     marginTop: 3,
     marginBottom: 3
@@ -138,18 +135,20 @@ const styles = StyleSheet.create({
   profile: {
     flexDirection: "row",
     marginTop: 20,
-    borderWidth: 1,
-    borderRadius: 25
+    borderWidth: 3,
+    borderRadius: 25,
+    borderColor: "white"
   },
 
   containerD: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    width: null
   },
   name: {
-    fontSize: 22,
-    color: "#C75D7A",
-    fontWeight: "600",
+    fontSize: 20,
+    color: "#04BFBF",
+    fontWeight: "300",
     alignSelf: "center",
     marginLeft: 10
   },
@@ -157,16 +156,16 @@ const styles = StyleSheet.create({
     marginTop: 50,
     height: 50,
     width: 100,
-
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 30,
-    backgroundColor: "#f9b384",
+    backgroundColor: "#D9663D",
     alignSelf: "center"
   },
   shareButtonText: {
-    color: "#FFFFFF",
-    fontSize: 20
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   qiddam: {
     width: 30,
@@ -178,7 +177,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
-    backgroundColor: "#FDFAF3"
+    backgroundColor: "white"
   },
   categoryList: {
     flexGrow: 1,
