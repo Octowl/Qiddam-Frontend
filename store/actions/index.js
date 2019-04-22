@@ -6,5 +6,6 @@ export { login, logout, signup, checkForExpiredToken } from "./authActions";
 export {
   fetchCategories,
   activityDetails,
-  fetchActivitiesCat
+  fetchActivitiesCat,
+  createActivity
 } from "./activityActions";
