@@ -8,10 +8,20 @@ import TouchableScale from "react-native-touchable-scale";
 
 class ActivitiesList extends Component {
   static navigationOptions = {
+    headerBackground: (
+      <Image
+        style={styles.catHeader}
+        source={require("../../img/cut_header.png")}
+      />
+    ),
+
+    title: "لستة",
     headerStyle: {
-      backgroundColor: "white"
+      height: 50,
+      borderBottomColor: "transparent",
+      borderBottomWidth: 0
     },
-    headerTintColor: "#04BFBF",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontWeight: "bold"
     }
@@ -60,6 +70,7 @@ class ActivitiesList extends Component {
   render() {
     return (
       <ImageBackground style={styles.background}>
+        <Text>{"    "}</Text>
         <FlatList
           onRefresh={() => this.onRefresh()}
           refreshing={this.state.isFetching}

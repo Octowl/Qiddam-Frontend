@@ -9,11 +9,8 @@ const instance = axios.create({
 export const fetchCategories = () => {
   return async dispatch => {
     try {
-      console.log("before the fetch");
       const res = await instance.get("/api/categories/");
       const categories = res.data;
-      console.log("after the fetch");
-      console.log("this is the categories", categories);
       dispatch({
         type: actionTypes.FETCH_CATEGORIES,
         payload: categories

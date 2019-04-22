@@ -31,10 +31,6 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.bgImage}
-          source={require("../../img/background1.png")}
-        />
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputs}
