@@ -14,6 +14,15 @@ import * as actionCreators from "../../store/actions";
 import { connect } from "react-redux";
 
 class Signup extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: "rgb(184, 224, 224)"
+    },
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
   state = {
     email: "",
     password: "",
@@ -26,22 +35,12 @@ class Signup extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.bgImage}
-          source={require("../../img/background1.png")}
-        />
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputs}
             placeholder="اسمك معنا"
             autoCapitalize="none"
             onChangeText={username => this.setState({ username })}
-          />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri: "https://img.icons8.com/plasticine/100/000000/user-male.png"
-            }}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -51,13 +50,6 @@ class Signup extends Component {
             autoCapitalize="none"
             onChangeText={first_name => this.setState({ first_name })}
           />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri:
-                "https://img.icons8.com/plasticine/100/000000/gender-neutral-user.png"
-            }}
-          />
         </View>
         <View style={styles.inputContainer}>
           <TextInput
@@ -65,13 +57,6 @@ class Signup extends Component {
             placeholder="اسمك الأخير"
             autoCapitalize="none"
             onChangeText={last_name => this.setState({ last_name })}
-          />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri:
-                "https://img.icons8.com/plasticine/100/000000/gender-neutral-user.png"
-            }}
           />
         </View>
 
@@ -83,12 +68,6 @@ class Signup extends Component {
             keyboardType="email-address"
             onChangeText={email => this.setState({ email })}
           />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri: "https://img.icons8.com/plasticine/50/000000/email.png"
-            }}
-          />
         </View>
 
         <View style={styles.inputContainer}>
@@ -98,12 +77,6 @@ class Signup extends Component {
             autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={password => this.setState({ password })}
-          />
-          <Image
-            style={styles.inputIcon}
-            source={{
-              uri: "https://img.icons8.com/plasticine/100/000000/password.png"
-            }}
           />
         </View>
 

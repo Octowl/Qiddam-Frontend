@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
-const resizeMode = "center";
+const resizeMode = "cover";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#DCDCDC"
+    backgroundColor: "rgb(184, 224, 224)"
   },
   inputContainer: {
     borderBottomColor: "#F5FCFF",
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
   },
 
   loginButton: {
-    backgroundColor: "#67DEBE",
-    opacity: 0.5,
+    backgroundColor: "rgb(217,102,61)",
+
     shadowColor: "#808080",
     shadowOffset: {
       width: 0,
@@ -68,13 +68,13 @@ const styles = StyleSheet.create({
   bgImage: {
     flex: 1,
     resizeMode,
-    position: "absolute",
+
     width: "100%",
     height: "100%",
     justifyContent: "center"
   },
   btnText: {
-    color: "#F08383",
+    color: "#F2CA50",
     fontWeight: "bold"
   },
   textByRegister: {

@@ -1,24 +1,73 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Image, FlatList } from "react-native";
+import {
+  View,
+  ImageBackground,
+  Image,
+  FlatList,
+  Header,
+  Text,
+  LinearGradient
+} from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import { ListItem, Icon } from "react-native-elements";
+import TouchableScale from "react-native-touchable-scale";
 
 class Categories extends Component {
+  static navigationOptions = {
+    headerBackground: (
+      <Image
+        style={styles.catHeader}
+        source={require("../../img/header.png")}
+      />
+    ),
+
+    title: "عنوان؟",
+    headerStyle: {
+      height: 200,
+      borderBottomColor: "transparent",
+      borderBottomWidth: 0
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold"
+    }
+  };
+  state = {
+    isFetching: false
+  };
   componentDidMount() {
-    this.props.fetchActivities();
+    this.props.fetchCategories();
+  }
+  handlePress = categoryID => {
+    this.props.fetchActivitiesCat(categoryID),
+      this.props.navigation.navigate("ActivitiesList");
+  };
+
+  async onRefresh() {
+    console.log("refreshing");
+    this.setState({ isFetching: true });
+    await this.props.fetchCategories();
+    this.setState({ isFetching: false });
   }
 
-  renderOrganizers = category => {
-    if (category.orgnizer) {
+  renderGroupMembers = Category => {
+    if (Category.activities) {
       return (
         <View style={styles.groupMembersContent}>
-          {category.orgnizer.map((img, key) => {
+          {Category.activities.map((activity, key) => {
+            {
+              console.log(activity.orgnizer.img);
+            }
             return (
               <Image
                 key={key}
                 style={styles.memberImage}
-                source={{ uri: img }}
+                source={{
+                  uri:
+                    "https://img.purch.com/h/1000/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ni8yODEvb3JpZ2luYWwvd2hpdGUtdHJlZS1mcm9nLmpwZw=="
+                }}
               />
             );
           })}
@@ -28,78 +77,51 @@ class Categories extends Component {
     return null;
   };
 
+  keyExtractor = (item, index) => index.toString();
+
+  renderItem = ({ item }) => (
+    <ListItem
+      rightTitle={item.title}
+      subtitle={this.renderGroupMembers(item)}
+      title="الأعضاء النشطين حاليا"
+      titleStyle={styles.titleStyle}
+      subtitleContainerStyle={styles.subtitleContainer}
+      Component={TouchableScale}
+      friction={90}
+      tension={100}
+      activeScale={0.9}
+      containerStyle={styles.categoryList}
+      onPress={() => this.handlePress(item.id)}
+      rightTitleStyle={styles.titleTextCategory}
+      rightTitleContainerStyle={styles.titleCategory}
+    />
+  );
+
   render() {
-    renderOrganizers = category => {
-      if (category.orgnizer) {
-        return (
-          <View style={styles.groupMembersContent}>
-            {category.orgnizer.map(orgnizer => {
-              return <Text>{orgnizer.user.username}</Text>;
-            })}
-          </View>
-        );
-      }
-      return null;
-    };
-
     return (
-      <FlatList
-        style={styles.root}
-        data={this.props.activities} //change this
-        extraData={this.props}
-        ItemSeparatorComponent={() => {
-          return <View style={styles.separator} />;
-        }}
-        keyExtractor={item => {
-          return item.id;
-        }}
-        renderItem={item => {
-          const Category = item.item;
-          let mainContentStyle;
-
-          return (
-            <View style={styles.container}>
-              <Image
-                source={{ uri: Category.category.image }}
-                style={styles.avatar}
-              />
-              <View style={styles.content}>
-                <View style={mainContentStyle}>
-                  <View style={styles.text}>
-                    <Text style={styles.groupName}>
-                      {Category.category.title}
-                    </Text>
-                  </View>
-                  {/* <Text style={styles.countMembers}>
-                    {Category.countMembers} members
-                  </Text> */}
-                  <Text style={styles.timeAgo}>Updated 2 months ago</Text>
-
-                  {() => {
-                    this.renderOrganizers(Category);
-                  }}
-
-                  <TouchableOpacity onPress={() => alert("HI")}>
-                    <Text>هنا</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          );
-        }}
-      />
+      <ImageBackground style={styles.background}>
+        <FlatList
+          onRefresh={() => this.onRefresh()}
+          refreshing={this.state.isFetching}
+          keyExtractor={this.keyExtractor}
+          data={this.props.activities}
+          renderItem={this.renderItem}
+        />
+      </ImageBackground>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    activities: state.activityReducer.activities
+    activities: state.activityReducer.categories
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchActivities: () => dispatch(actionCreators.fetchActivities())
+  fetchCategories: () => dispatch(actionCreators.fetchCategories()),
+  fetchActivitiesCat: categoryID =>
+    dispatch(actionCreators.fetchActivitiesCat(categoryID))
 });
 export default connect(
   mapStateToProps,

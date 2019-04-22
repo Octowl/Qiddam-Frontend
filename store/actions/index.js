@@ -11,7 +11,8 @@ export {
 // Activities
 
 export {
-  fetchCatogries,
-  fetchActivities,
-  activityDetails
+  fetchCategories,
+  activityDetails,
+  fetchActivitiesCat,
+  createActivity
 } from "./activityActions";

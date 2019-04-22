@@ -1,10 +1,14 @@
 import { createStackNavigator } from "react-navigation";
 
 import Categories from "../Activities/Categories";
+import ActivitiesList from "../Activities/ActivitiesList";
+import ActivityDetail from "../Activities/ActivityDetail";
 
 const ActivitiesStack = createStackNavigator(
   {
-    Categories: Categories
+    Categories: Categories,
+    ActivitiesList: ActivitiesList,
+    ActivityDetail: ActivityDetail
   },
   {
     initialRouteName: "Categories",
@@ -14,7 +18,7 @@ const ActivitiesStack = createStackNavigator(
     defaultNavigationOptions: {
       headerTintColor: "white",
       headerStyle: {
-        backgroundColor: "rgb(155, 166, 87)"
+        backgroundColor: "#bbc1c1"
       },
       headerTextStyle: {
         fontWeight: "bold"
