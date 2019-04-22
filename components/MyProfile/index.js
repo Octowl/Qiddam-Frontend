@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image } from "react-native";
 import styles from "../MyProfile/style";
 
 class Profile extends Component {
@@ -10,36 +10,24 @@ class Profile extends Component {
   };
 
   render() {
-    const myprofile = this.props.Myprofile;
+    // const myprofile = this.props.Myprofile;
     return (
       <View style={styles.container}>
-        {/* <Image
-          style={styles.bgImage}
-          source={require("../../img/background1.png")}
-        /> */}
         <View style={styles.header} />
         <Image
           style={styles.avatar}
           source={{ uri: "https://bootdey.com/img/Content/avatar/avatar6.png" }}
-        />
+        /></View>
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.info}>UX Designer / Mobile developer</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-              electram expetendis, omittam deseruisse consequuntur ius an,
-            </Text>
-
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Opcion 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Opcion 2</Text>
-            </TouchableOpacity>
+            <Text style={styles.name}>UserName</Text>
+            <Text style={styles.info}>fristname lastname /Gander</Text>
+            <Text style={styles.description}>Bio + Birthdate</Text>
+            <Text>Opcion 1</Text>
+            <Text>Opcion 2</Text>
           </View>
         </View>
-      </View>
+      
     );
   }
 }
