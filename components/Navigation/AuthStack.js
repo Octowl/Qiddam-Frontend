@@ -2,14 +2,16 @@ import { createStackNavigator } from "react-navigation";
 
 import Login from "../Authentication/Login";
 import Signup from "../Authentication/Signup";
+import MyProfile from "../MyProfile";
 
 const AuthStack = createStackNavigator(
   {
     Login: Login,
-    Signup: Signup
+    Signup: Signup,
+    MyProfile: MyProfile
   },
   {
-    initialRouteName: "Signup",
+    initialRouteName: "MyProfile",
     cardStyle: {
       backgroundColor: "rgb(248, 249, 250)"
     },

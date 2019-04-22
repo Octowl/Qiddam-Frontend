@@ -31,24 +31,40 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.inputs}
-              placeholder="اسمك"
-              onChangeText={username => this.setState({ username })}
-            />
-          </View>
+        <Image
+          style={styles.bgImage}
+          source={require("../../img/background1.png")}
+        />
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputs}
+            placeholder="اسمك"
+            autoCapitalize="none"
+            onChangeText={username => this.setState({ username })}
+          />
+          <Image
+            style={styles.inputIcon}
+            source={{
+              uri: "https://img.icons8.com/plasticine/100/000000/user-male.png"
+            }}
+          />
+        </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.inputs}
-              placeholder="كلمة المرور"
-              secureTextEntry={true}
-              onChangeText={password => this.setState({ password })}
-            />
-          </View>
-
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputs}
+            placeholder="كلمة المرور"
+            autoCapitalize="none"
+            secureTextEntry={true}
+            onChangeText={password => this.setState({ password })}
+          />
+          <Image
+            style={styles.inputIcon}
+            source={{
+              uri: "https://img.icons8.com/plasticine/100/000000/password.png"
+            }}
+          />
+        </View>
           <TouchableOpacity
             style={[styles.buttonContainer, styles.loginButton]}
             onPress={() => this.props.login(this.state)}
