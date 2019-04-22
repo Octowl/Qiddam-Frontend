@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Text, View, Image } from "react-native";
 import styles from "../MyProfile/style";
+import { Content } from "native-base";
 
 class Profile extends Component {
   static navigationOptions = {
@@ -12,12 +13,16 @@ class Profile extends Component {
   render() {
     // const myprofile = this.props.Myprofile;
     return (
-      <View style={styles.container}>
-        <View style={styles.header} />
-        <Image
-          style={styles.avatar}
-          source={{ uri: "https://bootdey.com/img/Content/avatar/avatar6.png" }}
-        /></View>
+      <Content>
+        <View style={styles.container}>
+          <View style={styles.header} />
+          <Image
+            style={styles.avatar}
+            source={{
+              uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
+            }}
+          />
+        </View>
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>UserName</Text>
@@ -27,7 +32,7 @@ class Profile extends Component {
             <Text>Opcion 2</Text>
           </View>
         </View>
-      
+      </Content>
     );
   }
 }

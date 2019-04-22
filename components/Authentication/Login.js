@@ -65,21 +65,21 @@ class Login extends Component {
             }}
           />
         </View>
-          <TouchableOpacity
-            style={[styles.buttonContainer, styles.loginButton]}
-            onPress={() => this.props.login(this.state)}
-          >
-            <Text style={styles.loginText}>تسجيل دخول</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.buttonContainer, styles.loginButton]}
+          onPress={() => this.props.login(this.state)}
+        >
+          <Text style={styles.loginText}>تسجيل دخول</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate("Signup")}
-          >
-            <Text style={styles.btnText}>ما عندك حساب؟</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => this.props.navigation.navigate("Signup")}
+        >
+          <Text style={styles.btnText}>ما عندك حساب؟</Text>
+        </TouchableOpacity>
       </View>
+      // </View>
     );
   }
 }
