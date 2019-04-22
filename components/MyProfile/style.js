@@ -1,11 +1,16 @@
 import { StyleSheet } from "react-native";
 
+import img from "../../img/profile.png";
+
 const resizeMode = "center";
 
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#00BFFF",
-    height: 200
+    height: 200,
+    alignSelf: "center",
+
+    flex: 1
   },
   avatar: {
     width: 130,

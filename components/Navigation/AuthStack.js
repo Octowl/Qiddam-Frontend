@@ -11,7 +11,7 @@ const AuthStack = createStackNavigator(
     MyProfile: MyProfile
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "MyProfile",
     cardStyle: {
       backgroundColor: "rgb(248, 249, 250)"
     },

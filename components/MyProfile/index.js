@@ -1,21 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Content, ScrollView } from "react-native";
 import styles from "../MyProfile/style";
-import { Content } from "native-base";
 
 class Profile extends Component {
   static navigationOptions = {
     title: "Profile",
-    headerLeft: null
+    header: null
   };
 
   render() {
     // const myprofile = this.props.Myprofile;
     return (
-      <Content>
+      <ScrollView>
         <View style={styles.container}>
-          <View style={styles.header} />
+          <View style={styles.header}>
+            <Image
+              style={{ width: 420 }}
+              source={require("../../img/profile.png")}
+            />
+          </View>
           <Image
             style={styles.avatar}
             source={{
@@ -32,7 +36,7 @@ class Profile extends Component {
             <Text>Opcion 2</Text>
           </View>
         </View>
-      </Content>
+      </ScrollView>
     );
   }
 }
