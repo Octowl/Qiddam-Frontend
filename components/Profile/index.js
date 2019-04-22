@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, Image, Content, ScrollView, Button } from "react-native";
+import { Text, View, Image, Content, ScrollView } from "react-native";
 import styles from "../MyProfile/style";
 
-class MyProfile extends Component {
+class Profile extends Component {
   static navigationOptions = {
-    title: "Profile",
     header: null
   };
 
   render() {
-    // const myprofile = this.props.Myprofile;
+    // const profile = this.props.profile;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -32,13 +31,6 @@ class MyProfile extends Component {
             <Text style={styles.name}>UserName</Text>
             <Text style={styles.info}>fristname lastname /Gander</Text>
             <Text style={styles.description}>Bio + Birthdate</Text>
-
-            <Button
-              // onPress={onPressLearnMore}
-              title="Update"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
           </View>
         </View>
       </ScrollView>
@@ -46,7 +38,7 @@ class MyProfile extends Component {
   }
 }
 const mapStateToProps = state => ({
-  Myprofile: state.authReducer.myprofile
+  Myprofile: state.authReducer.profile
 });
 
-export default connect(mapStateToProps)(MyProfile);
+export default connect(mapStateToProps)(Profile);
