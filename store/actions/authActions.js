@@ -37,7 +37,7 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = userData => {
+export const login = (userData, navigation) => {
   console.log(userData);
   return async dispatch => {
     try {
@@ -50,6 +50,7 @@ export const login = userData => {
       setAuthToken(user.token);
       await dispatch(setCurrentUser(decodeUser));
       dispatch(fetchMyProfile());
+      navigation.navigate("MyProfile");
     } catch (error) {
       console.error(error);
     }

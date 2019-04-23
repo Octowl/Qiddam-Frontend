@@ -9,10 +9,12 @@ export {
 } from "./authActions";
 
 // Activities
-
 export {
   fetchCategories,
   activityDetails,
   fetchActivitiesCat,
   createActivity
 } from "./activityActions";
+
+// Invite
+export { createInvite } from "./inviteActions";

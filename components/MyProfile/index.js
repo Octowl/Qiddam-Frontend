@@ -3,8 +3,13 @@ import { connect } from "react-redux";
 import { Text, View, Image } from "react-native";
 import styles from "../MyProfile/style";
 import { Content } from "native-base";
+import * as actionCreators from "../../store/actions";
 
 class Profile extends Component {
+  componentDidMount() {
+    this.props.fetchMyProfile();
+  }
+
   static navigationOptions = {
     title: "Profile",
     headerLeft: null
@@ -36,8 +41,17 @@ class Profile extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
+  };
+};
 const mapStateToProps = state => ({
   Myprofile: state.authReducer.myprofile
 });
 
-export default connect(mapStateToProps)(Profile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);
