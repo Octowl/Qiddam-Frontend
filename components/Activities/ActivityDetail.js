@@ -10,16 +10,13 @@ class ActivityDetail extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
-
         source={require("../../img/header2.png")}
-
       />
     ),
 
     title: "عنوان؟",
     headerStyle: {
-
-      height: 100,
+      height: 50,
 
       borderBottomColor: "transparent",
       borderBottomWidth: 0
@@ -71,13 +68,25 @@ class ActivityDetail extends Component {
                 التاريخ {this.props.activity.date}{" "}
               </Text>
               <Text style={styles.date}>الوقت {this.props.activity.time} </Text>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  this.props.fetchProfile(
+                    this.props.activity.orgnizer.user.id,
+                    this.props.navigation
+                  )
+                }
+              >
                 <View style={styles.profile}>
                   <Image
                     style={styles.avatar}
-                    source={{
-                      uri: this.props.activity.orgnizer.img
-                    }}
+                    source={
+                      this.props.activity.orgnizer.img
+                        ? { uri: this.props.activity.orgnizer.img }
+                        : {
+                            uri:
+                              "https://www.manufacturingusa.com/sites/manufacturingusa.com/files/default.png"
+                          }
+                    }
                   />
 
                   <Text style={styles.name}>
@@ -111,6 +120,10 @@ const mapDispatchToProps = dispatch => {
     createInvite: invite => dispatch(actionCreators.createInvite(invite))
   };
 };
+const mapDispatchToProps = dispatch => ({
+  fetchProfile: (profileID, navigation) =>
+    dispatch(actionCreators.fetchProfile(profileID, navigation))
+});
 
 export default connect(
   mapStateToProps,

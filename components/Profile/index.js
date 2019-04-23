@@ -7,38 +7,52 @@ class Profile extends Component {
   static navigationOptions = {
     header: null
   };
+  componentDidMount() {
+    this.props.fetchMyProfile;
+  }
 
   render() {
     // const profile = this.props.profile;
-    return (
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.header}>
+    if (!this.props.Myprofile) {
+      <Text>Loading</Text>;
+    } else {
+      return (
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <Image
+                style={{ width: 420, height: 200 }}
+                source={require("../../img/header3.png")}
+              />
+            </View>
             <Image
-              style={{ width: 420 }}
-              source={require("../../img/profile.png")}
+              style={styles.avatar}
+              source={{
+                uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
+              }}
             />
           </View>
-          <Image
-            style={styles.avatar}
-            source={{
-              uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
-            }}
-          />
-        </View>
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            <Text style={styles.name}>UserName</Text>
-            <Text style={styles.info}>fristname lastname /Gander</Text>
-            <Text style={styles.description}>Bio + Birthdate</Text>
+          <View style={styles.body}>
+            <View style={styles.bodyContent}>
+              <Text style={styles.name}>UserName</Text>
+              <Text style={styles.info}>fristname lastname /Gander</Text>
+              <Text style={styles.description}>Bio + Birthdate</Text>
+            </View>
           </View>
-        </View>
-      </ScrollView>
-    );
+        </ScrollView>
+      );
+    }
   }
 }
 const mapStateToProps = state => ({
   Myprofile: state.authReducer.profile
 });
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = dispatch => ({
+  fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);

@@ -22,7 +22,7 @@ class Categories extends Component {
         source={require("../../img/header.png")}
       />
     ),
-
+    headerLeft: null,
     title: "عنوان؟",
     headerStyle: {
       height: 200,
@@ -57,17 +57,18 @@ class Categories extends Component {
       return (
         <View style={styles.groupMembersContent}>
           {Category.activities.map((activity, key) => {
-            {
-              console.log(activity.orgnizer.img);
-            }
             return (
               <Image
                 key={key}
                 style={styles.memberImage}
-                source={{
-                  uri:
-                    "http://127.0.0.1:8000/media/profile_images/Screen_Shot_2019-04-21_at_3.41.02_PM.png"
-                }}
+                source={
+                  activity.orgnizer.img
+                    ? { uri: activity.orgnizer.img }
+                    : {
+                        uri:
+                          "https://www.manufacturingusa.com/sites/manufacturingusa.com/files/default.png"
+                      }
+                }
               />
             );
           })}

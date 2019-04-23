@@ -6,8 +6,8 @@ const resizeMode = "center";
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#00BFFF",
-    height: 210,
+    backgroundColor: "white",
+    height: "100%",
     alignSelf: "center",
     flex: 1
   },
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: 130,
     height: 130,
     borderRadius: 63,
-    borderWidth: 4,
+    borderWidth: 5,
     borderColor: "white",
     marginBottom: 10,
     alignSelf: "center",

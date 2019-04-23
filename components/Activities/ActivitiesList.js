@@ -11,14 +11,13 @@ class ActivitiesList extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
-
         source={require("../../img/header2.png")}
       />
     ),
 
     title: "عنوان؟",
     headerStyle: {
-      height: 100,
+      height: 50,
 
       borderBottomColor: "transparent",
       borderBottomWidth: 0
@@ -53,9 +52,20 @@ class ActivitiesList extends Component {
       tension={100}
       activeScale={0.95}
       containerStyle={styles.activityList}
-      subtitle={item.orgnizer.user.username}
+      subtitle={
+        item.orgnizer.user.username ? item.orgnizer.user.username : "username"
+      }
       subtitleStyle={styles.subtitleStyleOrg}
-      leftAvatar={{ source: { uri: item.orgnizer.img } }}
+      leftAvatar={
+        item.orgnizer.img
+          ? { source: { uri: item.orgnizer.img } }
+          : {
+              source: {
+                uri:
+                  "https://www.manufacturingusa.com/sites/manufacturingusa.com/files/default.png"
+              }
+            }
+      }
       onPress={() => this.handlePress(item.id)}
       titleStyle={styles.titleList}
       rightIcon={
@@ -70,13 +80,14 @@ class ActivitiesList extends Component {
   );
 
   render() {
-
     if (!this.props.categoryActivities) {
       return <Text>قاعد يحمّل</Text>;
     } else {
-      const filterCategoryActivities = this.props.categoryActivities.filter(
-        item => item.gender === "ذكر" || item.gender === "الكل"
-      ); // change this such that it corresponds to:   state.authReducer.user.gender
+      this.props.user
+        ? (filterCategoryActivities = this.props.categoryActivities.filter(
+            item => item.gender === "ذكر" || item.gender === "الكل"
+          ))
+        : (filterCategoryActivities = this.props.categoryActivities); // change this such that it corresponds to:   state.authReducer.user.gender
 
       return (
         <ImageBackground style={styles.background}>
@@ -90,7 +101,6 @@ class ActivitiesList extends Component {
         </ImageBackground>
       );
     }
-
   }
 }
 
@@ -102,7 +112,9 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => ({
   activityDetails: activityID =>
-    dispatch(actionCreators.activityDetails(activityID))
+    dispatch(actionCreators.activityDetails(activityID)),
+  fetchActivitiesCat: categoryID =>
+    dispatch(actionCreators.fetchActivitiesCat(categoryID))
 });
 
 export default connect(
