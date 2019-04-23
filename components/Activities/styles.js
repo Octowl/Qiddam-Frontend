@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   header: {
-    padding: 30,
+    marginTop: 30,
+    padding: 20,
     alignItems: "center",
     alignSelf: "center",
     width: 250,
@@ -154,7 +155,8 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   shareButton: {
-    marginTop: 50,
+    marginTop: 10,
+    marginBottom: 10,
     height: 50,
     width: 100,
     justifyContent: "center",
@@ -236,7 +238,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#bbc1c1"
   },
-  /////here
+
   titleStyle: {
     fontWeight: "100",
     fontSize: 10,
@@ -245,6 +247,43 @@ const styles = StyleSheet.create({
   },
   subtitleStyleOrg: {
     color: "#a1a3a2"
+  },
+  createForm: {
+    borderRadius: 35,
+    padding: 15
+  },
+  addButtonText: {
+    textAlign: "center",
+    fontSize: 15,
+    padding: 5,
+    color: "white"
+  },
+  addButton: {
+    borderRadius: 20,
+    width: 60,
+    alignSelf: "center",
+    backgroundColor: "rgba(242, 202, 80, 1)",
+    shadowColor: "#8768A6",
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22
+  },
+  input: {
+    height: 35,
+    marginLeft: 16,
+    borderBottomColor: "#FFFFFF",
+    flex: 1,
+
+    fontSize: 15,
+    marginTop: 10,
+    alignSelf: "center"
+  },
+  item: {
+    marginTop: 100,
+    alignItems: "flex-end"
   }
 });
 

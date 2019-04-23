@@ -3,12 +3,14 @@ import { createStackNavigator } from "react-navigation";
 import Categories from "../Activities/Categories";
 import ActivitiesList from "../Activities/ActivitiesList";
 import ActivityDetail from "../Activities/ActivityDetail";
+import ActivityCreate from "../Activities/ActivityCreateForm";
 
 const ActivitiesStack = createStackNavigator(
   {
     Categories: Categories,
     ActivitiesList: ActivitiesList,
-    ActivityDetail: ActivityDetail
+    ActivityDetail: ActivityDetail,
+    ActivityCreate: ActivityCreate
   },
   {
     initialRouteName: "Categories",
