@@ -12,8 +12,7 @@ export const fetchCategories = () => {
       console.log("before the fetch");
       const res = await instance.get("/api/categories/");
       const categories = res.data;
-      console.log("after the fetch");
-      console.log("this is the categories", categories);
+
       dispatch({
         type: actionTypes.FETCH_CATEGORIES,
         payload: categories
@@ -25,7 +24,7 @@ export const fetchCategories = () => {
 };
 
 //this will fetch activities in a spicific category
-export const fetchActivitiesCat = categoryID => {
+export const fetchActivitiesCat = (categoryID, gender, user) => {
   return async dispatch => {
     try {
       const res = await instance.get("/api/categories/");
@@ -56,18 +55,17 @@ export const activityDetails = activityID => {
   };
 };
 
-export const createActivity = () => {
+export const createActivity = activityOBJ => {
   return async dispatch => {
+    console.log(activityOBJ);
     try {
-      const res = await instance.get("/api/activity/create");
-      const activity = res.data;
+      const res = await instance.post("/api/activity/create/", activityOBJ);
 
       dispatch({
-        type: actionTypes.CREATE_ACTIVITY,
-        payload: activity
+        type: actionTypes.CREATE_ACTIVITY
       });
     } catch (error) {
-      console.error("Something wnet wrong", error);
+      console.error("Something went wrong", error);
     }
   };
 };

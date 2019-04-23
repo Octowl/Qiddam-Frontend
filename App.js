@@ -29,8 +29,8 @@ class App extends React.Component {
     // }
     return (
       <Provider store={store}>
-        <ActivityCreateForm />
-        {/* <AppContainer /> */}
+        {/* <ActivityCreateForm /> */}
+        <AppContainer />
       </Provider>
     );
   }

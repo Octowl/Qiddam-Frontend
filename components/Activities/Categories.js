@@ -6,7 +6,7 @@ import {
   FlatList,
   Header,
   Text,
-  LinearGradient
+  TouchableOpacity
 } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
@@ -66,7 +66,7 @@ class Categories extends Component {
                 style={styles.memberImage}
                 source={{
                   uri:
-                    "https://img.purch.com/h/1000/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ni8yODEvb3JpZ2luYWwvd2hpdGUtdHJlZS1mcm9nLmpwZw=="
+                    "http://127.0.0.1:8000/media/profile_images/Screen_Shot_2019-04-21_at_3.41.02_PM.png"
                 }}
               />
             );
@@ -83,7 +83,7 @@ class Categories extends Component {
     <ListItem
       rightTitle={item.title}
       subtitle={this.renderGroupMembers(item)}
-      title="الأعضاء النشطين حاليا"
+      title="الأعضاء النشيطين "
       titleStyle={styles.titleStyle}
       subtitleContainerStyle={styles.subtitleContainer}
       Component={TouchableScale}
@@ -100,6 +100,13 @@ class Categories extends Component {
   render() {
     return (
       <ImageBackground style={styles.background}>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => this.props.navigation.navigate("ActivityCreate")}
+        >
+          <Text style={styles.addButtonText}>أضف</Text>
+        </TouchableOpacity>
+
         <FlatList
           onRefresh={() => this.onRefresh()}
           refreshing={this.state.isFetching}
