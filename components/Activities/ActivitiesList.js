@@ -11,13 +11,15 @@ class ActivitiesList extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
-        source={require("../../img/cut_header.png")}
+
+        source={require("../../img/header2.png")}
       />
     ),
 
-    title: "لستة",
+    title: "عنوان؟",
     headerStyle: {
-      height: 50,
+      height: 100,
+
       borderBottomColor: "transparent",
       borderBottomWidth: 0
     },
@@ -68,31 +70,39 @@ class ActivitiesList extends Component {
   );
 
   render() {
-    return (
-      <ImageBackground style={styles.background}>
-        <Text>{"    "}</Text>
-        <FlatList
-          onRefresh={() => this.onRefresh()}
-          refreshing={this.state.isFetching}
-          keyExtractor={this.keyExtractor}
-          data={this.props.categoryActivities}
-          renderItem={this.renderItem}
-        />
-      </ImageBackground>
-    );
+
+    if (!this.props.categoryActivities) {
+      return <Text>قاعد يحمّل</Text>;
+    } else {
+      const filterCategoryActivities = this.props.categoryActivities.filter(
+        item => item.gender === "ذكر" || item.gender === "الكل"
+      ); // change this such that it corresponds to:   state.authReducer.user.gender
+
+      return (
+        <ImageBackground style={styles.background}>
+          <FlatList
+            onRefresh={() => this.onRefresh()}
+            refreshing={this.state.isFetching}
+            keyExtractor={this.keyExtractor}
+            data={filterCategoryActivities}
+            renderItem={this.renderItem}
+          />
+        </ImageBackground>
+      );
+    }
+
   }
 }
 
 const mapStateToProps = state => {
   return {
     categoryActivities: state.activityReducer.categoryActivities.activities
+    // userGender: state.authReducer.user.gender //add this to backend
   };
 };
 const mapDispatchToProps = dispatch => ({
   activityDetails: activityID =>
-    dispatch(actionCreators.activityDetails(activityID)),
-  fetchActivitiesCat: categoryID =>
-    dispatch(actionCreators.fetchActivitiesCat(categoryID))
+    dispatch(actionCreators.activityDetails(activityID))
 });
 
 export default connect(

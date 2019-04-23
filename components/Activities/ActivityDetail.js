@@ -10,13 +10,17 @@ class ActivityDetail extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
-        source={require("../../img/cut_header.png")}
+
+        source={require("../../img/header2.png")}
+
       />
     ),
 
     title: "عنوان؟",
     headerStyle: {
-      height: 50,
+
+      height: 100,
+
       borderBottomColor: "transparent",
       borderBottomWidth: 0
     },

@@ -3,6 +3,7 @@ import { createStackNavigator } from "react-navigation";
 import Categories from "../Activities/Categories";
 import ActivitiesList from "../Activities/ActivitiesList";
 import ActivityDetail from "../Activities/ActivityDetail";
+import ActivityCreate from "../Activities/ActivityCreateForm";
 
 import Login from "../Authentication/Login";
 import Signup from "../Authentication/Signup";
@@ -11,10 +12,8 @@ const ActivitiesStack = createStackNavigator(
   {
     Categories: Categories,
     ActivitiesList: ActivitiesList,
-    ActivityDetail: ActivityDetail
-
-    // Login: Login,
-    // Signup: Signup
+    ActivityDetail: ActivityDetail,
+    ActivityCreate: ActivityCreate
   },
   {
     initialRouteName: "Categories",
