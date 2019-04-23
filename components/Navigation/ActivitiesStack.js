@@ -5,6 +5,9 @@ import ActivitiesList from "../Activities/ActivitiesList";
 import ActivityDetail from "../Activities/ActivityDetail";
 import ActivityCreate from "../Activities/ActivityCreateForm";
 
+import Login from "../Authentication/Login";
+import Signup from "../Authentication/Signup";
+
 const ActivitiesStack = createStackNavigator(
   {
     Categories: Categories,

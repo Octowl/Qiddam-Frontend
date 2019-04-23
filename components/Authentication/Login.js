@@ -63,7 +63,7 @@ class Login extends Component {
         </View>
         <TouchableOpacity
           style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.props.login(this.state)}
+          onPress={() => this.props.login(this.state, this.props.navigation)}
         >
           <Text style={styles.loginText}>تسجيل دخول</Text>
         </TouchableOpacity>
@@ -81,7 +81,8 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: userData => dispatch(actionCreators.login(userData))
+  login: (userData, navigate) =>
+    dispatch(actionCreators.login(userData, navigate))
 });
 
 export default connect(
