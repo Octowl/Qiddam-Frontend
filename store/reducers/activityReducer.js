@@ -25,10 +25,8 @@ const activities = (state = initialState, action) => {
       const categoryActivities = allCategories.find(
         category => action.categoryID === category.id
       );
-
       return {
         ...state,
-
         categoryActivities: categoryActivities
       };
 

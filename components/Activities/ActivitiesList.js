@@ -112,7 +112,9 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => ({
   activityDetails: activityID =>
-    dispatch(actionCreators.activityDetails(activityID))
+    dispatch(actionCreators.activityDetails(activityID)),
+  fetchActivitiesCat: categoryID =>
+    dispatch(actionCreators.fetchActivitiesCat(categoryID))
 });
 
 export default connect(
