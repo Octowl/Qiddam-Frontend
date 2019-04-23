@@ -81,8 +81,10 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: (userData, navigation) =>
-    dispatch(actionCreators.login(userData, navigation))
+
+  login: (userData, navigate) =>
+    dispatch(actionCreators.login(userData, navigate))
+
 });
 
 export default connect(

@@ -4,7 +4,12 @@ import { Text, View, Image, Content, ScrollView, Button } from "react-native";
 import styles from "../MyProfile/style";
 import * as actionCreators from "../../store/actions";
 
+
 class MyProfile extends Component {
+  componentDidMount() {
+    this.props.fetchMyProfile();
+  }
+
   static navigationOptions = {
     header: null
   };
@@ -50,9 +55,12 @@ class MyProfile extends Component {
   }
 }
 
+
 const mapDispatchToProps = dispatch => ({
-  userActivities: name => dispatch(actionCreators.userActivities(name))
+  userActivities: name => dispatch(actionCreators.userActivities(name)),
+  fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
 });
+
 
 const mapStateToProps = state => ({
   myProfile: state.authReducer.myprofile
@@ -62,3 +70,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyProfile);
+

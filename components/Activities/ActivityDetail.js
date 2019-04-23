@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
+import { Button } from "native-base";
 
 class ActivityDetail extends Component {
   static navigationOptions = {
@@ -25,7 +26,21 @@ class ActivityDetail extends Component {
       fontWeight: "bold"
     }
   };
+
+  handlePress = async invite => {
+    if (this.props.user) {
+      await this.props.createInvite(invite);
+    } else {
+      return this.props.navigation.navigate("Login");
+    }
+  };
+
   render() {
+    const invite = {
+      activity: this.props.activity.id,
+      status: "في انتظار القبول",
+      guest: ""
+    };
     if (!this.props.activity.orgnizer) {
       return <Text>Loading</Text>;
     } else {
@@ -80,9 +95,13 @@ class ActivityDetail extends Component {
                 </View>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.shareButton}>
-              <Text style={styles.shareButtonText}>قدّام</Text>
-            </TouchableOpacity>
+
+            <Button
+              style={styles.shareButton}
+              onPress={() => this.handlePress(invite)}
+            >
+              <Text style={styles.shareButtonText}>قدّام </Text>
+            </Button>
           </View>
         </ScrollView>
       );
@@ -92,7 +111,13 @@ class ActivityDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    activity: state.activityReducer.activity
+    activity: state.activityReducer.activity,
+    user: state.authReducer.user
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    createInvite: invite => dispatch(actionCreators.createInvite(invite))
   };
 };
 const mapDispatchToProps = dispatch => ({

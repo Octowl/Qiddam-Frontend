@@ -158,11 +158,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     height: 50,
-    width: 100,
+    minWidth: 100,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 30,
     backgroundColor: "#D9663D",
+    borderRadius: 30,
     alignSelf: "center"
   },
   shareButtonText: {

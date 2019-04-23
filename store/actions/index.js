@@ -9,7 +9,6 @@ export {
 } from "./authActions";
 
 // Activities
-
 export {
   fetchCategories,
   activityDetails,
@@ -17,3 +16,6 @@ export {
   createActivity,
   userActivities
 } from "./activityActions";
+
+// Invite
+export { createInvite } from "./inviteActions";
