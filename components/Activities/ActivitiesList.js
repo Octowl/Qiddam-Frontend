@@ -11,6 +11,7 @@ class ActivitiesList extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
+
         source={require("../../img/header2.png")}
       />
     ),
@@ -18,6 +19,7 @@ class ActivitiesList extends Component {
     title: "عنوان؟",
     headerStyle: {
       height: 100,
+
       borderBottomColor: "transparent",
       borderBottomWidth: 0
     },
@@ -68,6 +70,7 @@ class ActivitiesList extends Component {
   );
 
   render() {
+
     if (!this.props.categoryActivities) {
       return <Text>قاعد يحمّل</Text>;
     } else {
@@ -87,6 +90,7 @@ class ActivitiesList extends Component {
         </ImageBackground>
       );
     }
+
   }
 }
 

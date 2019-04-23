@@ -49,6 +49,7 @@ export const login = userData => {
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
       await dispatch(setCurrentUser(decodeUser));
+      dispatch(fetchMyProfile());
     } catch (error) {
       console.error(error);
     }
@@ -77,3 +78,34 @@ const setCurrentUser = user => ({
   type: actionTypes.SET_CURRENT_USER,
   payload: user
 });
+export const fetchMyProfile = () => {
+  return async dispatch => {
+    try {
+      const res = await axios.get("http://127.0.0.1:8000/api/profile/");
+      const profile = res.data;
+      dispatch({
+        type: actionTypes.FUTCH_MY_PROFILE,
+        payload: profile
+      });
+    } catch (error) {
+      console.error("Someting what wrong", error);
+    }
+  };
+};
+
+export const fetchProfile = profileID => {
+  return async dispatch => {
+    try {
+      const res = await axios.get(
+        `http://127.0.0.1:8000/api/profile/${profileID}/`
+      );
+      const profile = res.data;
+      dispatch({
+        type: actionTypes.FUTCH_PROFILE,
+        payload: profile
+      });
+    } catch (error) {
+      console.error("Someting what wrong", error);
+    }
+  };
+};

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import { connect } from "react-redux";
-import qiddamLogo from "../../img/qiddamLogo.png";
 import * as actionCreators from "../../store/actions";
 
 class ActivityDetail extends Component {
@@ -10,13 +9,17 @@ class ActivityDetail extends Component {
     headerBackground: (
       <Image
         style={styles.catHeader}
+
         source={require("../../img/header2.png")}
+
       />
     ),
 
     title: "عنوان؟",
     headerStyle: {
+
       height: 100,
+
       borderBottomColor: "transparent",
       borderBottomWidth: 0
     },
@@ -31,6 +34,7 @@ class ActivityDetail extends Component {
     } else {
       return (
         <ScrollView style={styles.pageView}>
+          <Text>{"    "}</Text>
           <View style={styles.containerD}>
             <View style={styles.header}>
               <Text style={styles.headerTitle}>

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { ImageBackground, View } from "react-native";
+import { ImageBackground } from "react-native";
 
 class SplashScreen extends Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../img/splash.png")}
+        source={require("../../img/background1.png")}
         style={{ width: null, flex: 1 }}
       />
     );
