@@ -8,12 +8,12 @@ class Profile extends Component {
     header: null
   };
   componentDidMount() {
-    this.props.fetchMyProfile;
+    // this.props.fetchProfile();
   }
 
   render() {
-    // const profile = this.props.profile;
-    if (!this.props.Myprofile) {
+    const profile = this.props.profile;
+    if (!this.props.profile) {
       <Text>Loading</Text>;
     } else {
       return (
@@ -28,15 +28,17 @@ class Profile extends Component {
             <Image
               style={styles.avatar}
               source={{
-                uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
+                uri: profile.img
               }}
             />
           </View>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>UserName</Text>
-              <Text style={styles.info}>fristname lastname /Gander</Text>
-              <Text style={styles.description}>Bio + Birthdate</Text>
+              <Text style={styles.name}>{profile.user.username}</Text>
+              <Text style={styles.info}>
+                {profile.user.first_name + profile.user.last_name}
+              </Text>
+              <Text style={styles.description}>{profile.bio}</Text>
             </View>
           </View>
         </ScrollView>
@@ -45,11 +47,11 @@ class Profile extends Component {
   }
 }
 const mapStateToProps = state => ({
-  Myprofile: state.authReducer.profile
+  profile: state.authReducer.profile
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
+  //  fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
 });
 
 export default connect(

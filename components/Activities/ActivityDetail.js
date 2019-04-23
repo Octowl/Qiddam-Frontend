@@ -115,14 +115,11 @@ const mapStateToProps = state => {
     user: state.authReducer.user
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    createInvite: invite => dispatch(actionCreators.createInvite(invite))
-  };
-};
+
 const mapDispatchToProps = dispatch => ({
   fetchProfile: (profileID, navigation) =>
-    dispatch(actionCreators.fetchProfile(profileID, navigation))
+    dispatch(actionCreators.fetchProfile(profileID, navigation)),
+  createInvite: invite => dispatch(actionCreators.createInvite(invite))
 });
 
 export default connect(

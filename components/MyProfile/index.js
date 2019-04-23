@@ -4,7 +4,6 @@ import { Text, View, Image, Content, ScrollView, Button } from "react-native";
 import styles from "../MyProfile/style";
 import * as actionCreators from "../../store/actions";
 
-
 class MyProfile extends Component {
   componentDidMount() {
     this.props.fetchMyProfile();
@@ -19,7 +18,7 @@ class MyProfile extends Component {
   }
 
   render() {
-    // const myprofile = this.props.Myprofile;
+    const myprofile = this.props.myProfile;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -32,15 +31,20 @@ class MyProfile extends Component {
           <Image
             style={styles.avatar}
             source={{
-              uri: "https://bootdey.com/img/Content/avatar/avatar6.png"
+              uri: myprofile.img
             }}
           />
         </View>
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>UserName</Text>
-            <Text style={styles.info}>fristname lastname /Gander</Text>
-            <Text style={styles.description}>Bio + Birthdate</Text>
+            <Text style={styles.name}>{myprofile.user.username}</Text>
+            {/* <Text style={styles.info}>
+              {myprofile.user.fname}
+              {myprofile.gander}
+            </Text> */}
+            <Text style={styles.description}>
+              {myprofile.bio} {myprofile.user.date_of_birth}
+            </Text>
 
             {/* <Button
               // onPress={onPressLearnMore}
@@ -55,12 +59,10 @@ class MyProfile extends Component {
   }
 }
 
-
 const mapDispatchToProps = dispatch => ({
   userActivities: name => dispatch(actionCreators.userActivities(name)),
   fetchMyProfile: () => dispatch(actionCreators.fetchMyProfile())
 });
-
 
 const mapStateToProps = state => ({
   myProfile: state.authReducer.myprofile
@@ -70,4 +72,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyProfile);
-
