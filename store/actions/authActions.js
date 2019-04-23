@@ -18,16 +18,14 @@ const setAuthToken = token => {
 
 export const checkForExpiredToken = () => {
   return async dispatch => {
-    // Get token
     const token = AsyncStorage.getItem("token");
 
     if (token) {
       const currentTime = Date.now() / 1000;
-      // Decode token and get user info
+
       const user = jwt_decode(token);
-      // Check token expiration
+
       if (user.exp >= currentTime) {
-        // Set auth token header
         dispatch(setCurrentUser(user));
         setAuthToken(token);
       } else {
@@ -37,7 +35,7 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = userData => {
+export const login = (userData, navigation) => {
   console.log(userData);
   return async dispatch => {
     try {
@@ -49,7 +47,8 @@ export const login = userData => {
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
       await dispatch(setCurrentUser(decodeUser));
-      dispatch(fetchMyProfile());
+      await dispatch(fetchMyProfile());
+      navigation.navigate("MyProfile");
     } catch (error) {
       console.error(error);
     }
@@ -78,7 +77,8 @@ const setCurrentUser = user => ({
   type: actionTypes.SET_CURRENT_USER,
   payload: user
 });
-export const fetchMyProfile = () => {
+
+const fetchMyProfile = () => {
   return async dispatch => {
     try {
       const res = await axios.get("http://127.0.0.1:8000/api/profile/");
@@ -93,7 +93,7 @@ export const fetchMyProfile = () => {
   };
 };
 
-export const fetchProfile = profileID => {
+export const fetchProfile = (profileID, navigation) => {
   return async dispatch => {
     try {
       const res = await axios.get(
@@ -104,6 +104,7 @@ export const fetchProfile = profileID => {
         type: actionTypes.FUTCH_PROFILE,
         payload: profile
       });
+      navigation.replace("Profile");
     } catch (error) {
       console.error("Someting what wrong", error);
     }

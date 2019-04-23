@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Text, View, Image, Content, ScrollView, Button } from "react-native";
 import styles from "../MyProfile/style";
+import * as actionCreators from "../../store/actions";
 
 class MyProfile extends Component {
   static navigationOptions = {
-    title: "Profile",
     header: null
   };
+
+  componentDidMount() {
+    this.props.userActivities(this.props.myProfile.user.username);
+  }
 
   render() {
     // const myprofile = this.props.Myprofile;
@@ -16,8 +20,8 @@ class MyProfile extends Component {
         <View style={styles.container}>
           <View style={styles.header}>
             <Image
-              style={{ width: 420 }}
-              source={require("../../img/profile.png")}
+              style={{ width: 420, height: 200 }}
+              source={require("../../img/header2.png")}
             />
           </View>
           <Image
@@ -33,20 +37,28 @@ class MyProfile extends Component {
             <Text style={styles.info}>fristname lastname /Gander</Text>
             <Text style={styles.description}>Bio + Birthdate</Text>
 
-            <Button
+            {/* <Button
               // onPress={onPressLearnMore}
               title="Update"
               color="#841584"
               accessibilityLabel="Learn more about this purple button"
-            />
+            /> */}
           </View>
         </View>
       </ScrollView>
     );
   }
 }
-const mapStateToProps = state => ({
-  Myprofile: state.authReducer.myprofile
+
+const mapDispatchToProps = dispatch => ({
+  userActivities: name => dispatch(actionCreators.userActivities(name))
 });
 
-export default connect(mapStateToProps)(MyProfile);
+const mapStateToProps = state => ({
+  myProfile: state.authReducer.myprofile
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyProfile);

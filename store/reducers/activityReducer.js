@@ -3,10 +3,10 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   categories: [],
   activity: [],
-  categoryActivities: []
+  categoryActivities: [],
+  userActivities: []
 };
 
-// might delete this later
 const activities = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_CATEGORIES:
@@ -32,10 +32,13 @@ const activities = (state = initialState, action) => {
         categoryActivities: categoryActivities
       };
 
-    case actionTypes.UPDATE_ACTIVITY:
+    case actionTypes.FETCH_USER_ACTIVITIES:
+      cat = action.payload.map(category => category.activities);
+      console.log(cat);
+
       return {
         ...state,
-        categories: action.payload
+        userActivities: cat
       };
 
     default:

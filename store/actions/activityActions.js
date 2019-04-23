@@ -23,7 +23,7 @@ export const fetchCategories = () => {
 };
 
 //this will fetch activities in a spicific category
-export const fetchActivitiesCat = (categoryID, gender, user) => {
+export const fetchActivitiesCat = categoryID => {
   return async dispatch => {
     try {
       const res = await instance.get("/api/categories/");
@@ -35,6 +35,25 @@ export const fetchActivitiesCat = (categoryID, gender, user) => {
       });
     } catch (error) {
       console.error("Something went wrong while fetching activities ", error);
+    }
+  };
+};
+
+export const userActivities = name => {
+  return async dispatch => {
+    try {
+      const res = await instance.get("/api/categories/");
+      const activities = res.data;
+      dispatch({
+        type: actionTypes.FETCH_USER_ACTIVITIES,
+        payload: activities,
+        username: name
+      });
+    } catch (error) {
+      console.error(
+        "Something went wrong while fetching user activities ",
+        error
+      );
     }
   };
 };
@@ -54,47 +73,41 @@ export const activityDetails = activityID => {
   };
 };
 
-export const createActivity = activityOBJ => {
-  return async dispatch => {
+export const createActivity = (activityOBJ, navigation) => {
+  return async () => {
     console.log(activityOBJ);
     try {
-      const res = await instance.post("/api/activity/create/", activityOBJ);
+      await instance.post("/api/activity/create/", activityOBJ);
 
-      dispatch({
-        type: actionTypes.CREATE_ACTIVITY
-      });
+      navigation.replace("Categories");
     } catch (error) {
       console.error("Something went wrong", error);
     }
   };
 };
 
-export const updateActivity = (activity, activityUpdate) => {
-  return async dispatch => {
-    try {
-      const res = await instance.put(
-        `/api/activity/update/${activity}`,
-        activityUpdate
-      );
-      const response = res.data;
-      dispatch({
-        type: actionTypes.UPDATE_ACTIVITY,
-        payload: response
-      });
-    } catch (error) {
-      console.error("Something wnet wrong", error);
-    }
-  };
-};
+// export const updateActivity = (activity, activityUpdate) => {
+//   return async dispatch => {
+//     try {
+//       const res = await instance.put(
+//         `/api/activity/update/${activity}`,
+//         activityUpdate
+//       );
+//       const response = res.data;
+//       dispatch({
+//         type: actionTypes.UPDATE_ACTIVITY,
+//         payload: response
+//       });
+//     } catch (error) {
+//       console.error("Something wnet wrong", error);
+//     }
+//   };
+// };
+
 export const deleteActivity = activityID => {
-  return async dispatch => {
+  return async () => {
     try {
-      const res = await instance.get(`/api/activity/delete/${activityID}`);
-      const activityId = res.data;
-      dispatch({
-        type: actionTypes.DELETE_ACTIVITY,
-        payload: activityId
-      });
+      await instance.delete(`/api/activity/delete/${activityID}`);
     } catch (error) {
       console.error("Something wnet wrong", error);
     }

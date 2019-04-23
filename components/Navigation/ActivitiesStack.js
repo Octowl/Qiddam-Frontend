@@ -4,13 +4,15 @@ import Categories from "../Activities/Categories";
 import ActivitiesList from "../Activities/ActivitiesList";
 import ActivityDetail from "../Activities/ActivityDetail";
 import ActivityCreate from "../Activities/ActivityCreateForm";
+import Profile from "../Profile/index";
 
 const ActivitiesStack = createStackNavigator(
   {
     Categories: Categories,
     ActivitiesList: ActivitiesList,
     ActivityDetail: ActivityDetail,
-    ActivityCreate: ActivityCreate
+    ActivityCreate: ActivityCreate,
+    Profile: Profile
   },
   {
     initialRouteName: "Categories",
