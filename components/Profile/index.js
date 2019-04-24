@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { Text, View, Image, Content, ScrollView } from "react-native";
 import styles from "../MyProfile/style";
 
+/**
+ * AzizCR: Is this component actually being used?
+ */
+
 class Profile extends Component {
   static navigationOptions = {
     header: null

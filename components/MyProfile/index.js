@@ -13,6 +13,9 @@ class MyProfile extends Component {
     header: null
   };
 
+  /**
+   * AzizCR: why are there two componentDidMounts?
+   */
   componentDidMount() {
     this.props.userActivities(this.props.myProfile.user.username);
   }

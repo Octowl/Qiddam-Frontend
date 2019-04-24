@@ -52,6 +52,9 @@ class Categories extends Component {
     this.setState({ isFetching: false });
   }
 
+  /**
+   * AzizCR: this feels like it should be its own component
+   */
   renderGroupMembers = Category => {
     if (Category.activities) {
       return (

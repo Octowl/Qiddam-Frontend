@@ -10,6 +10,9 @@ const AuthStack = createStackNavigator(
   {
     Login: Login,
     Signup: Signup,
+    /**
+     * AzizCR: is there any way that we can update the profile from the profile component itself?
+     */
     MyProfile: MyProfile,
     Profile1: Profileup
   },

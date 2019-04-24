@@ -8,6 +8,7 @@ class UpdateProfile extends Component {
     img: "",
     bio: ""
   };
+
   componentDidMount() {
     //this.props.profile &&
     this.setState({
@@ -22,6 +23,9 @@ class UpdateProfile extends Component {
   }
 
   componentDidUpdate(prevState) {
+    /**
+     * AzizCR: what is this condition actually checking for?
+     */
     if (this.state === prevState) {
       this.setState({
         user: {
