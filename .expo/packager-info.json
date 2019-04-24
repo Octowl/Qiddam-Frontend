@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 39065,
-  "expoServerNgrokUrl": "https://65-nfr.anonymous.qiddam-frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.65-nfr.anonymous.qiddam-frontend.exp.direct",
-  "ngrokPid": 39076
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

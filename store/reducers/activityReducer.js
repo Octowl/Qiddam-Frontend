@@ -4,7 +4,8 @@ const initialState = {
   categories: [],
   activity: [],
   categoryActivities: [],
-  userActivities: []
+  userActivities: [],
+  categoryID: null
 };
 
 const activities = (state = initialState, action) => {
@@ -34,6 +35,13 @@ const activities = (state = initialState, action) => {
       cat = action.payload.map(category => category.activities);
       console.log(cat);
 
+    case actionTypes.CATCH_CATEGORY_ID:
+      return {
+        ...state,
+        categoryID: action.payload
+      };
+
+      //???
       return {
         ...state,
         userActivities: cat
